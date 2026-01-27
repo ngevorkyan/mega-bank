@@ -22,7 +22,6 @@ def init_database():
     
     try:
         cursor = conn.cursor()
-        
         with open("schema.sql", "r") as f:
             schema = f.read()
             
