@@ -36,7 +36,12 @@ def register_user(username, password):
             "insert into users (username, password_hash) values (%s, %s) returning id", (username, password_hash)
         )
         
-        user_id = cursor.fetchone()[0]
+        result = cursor.fetchone()
+        
+        if result == None:
+            raise Exception ('Error')
+    
+        user_id = result[0]
         
         #Create new account for user with balance of 0
         cursor.execute(
