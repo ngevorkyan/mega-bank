@@ -13,7 +13,7 @@ from banking import (
 def display_menu(username):
     """Display banking menu"""
     print('\n' + '=' * 40)
-    print(f'Welcome, {username}')
+    print(f'Welcome, {username.capitalize()}')
     print('=' * 40)
     print('1. Check balance')
     print('2. Deposit')
