@@ -71,36 +71,43 @@ def main_menu(user_id, username):
         
 
 
-def main(): 
-    '''Main application entry point'''
+def main():
     print('\n' + '=' * 40)
     print('Mega Bank - CLI application system')
     print('=' * 40)
-    
-    choice = input ('\nChoose from 1-3').strip()
-    
+
+    print('1. Login')
+    print('2. Register')
+    print('3. Exit')
+
+    choice = input('\nChoose from 1-3: ').strip()
+
     if choice == '1':
         username = input('Enter username: ')
         password = input('Enter password: ')
         user_id = login_user(username, password)
-        
+
         if user_id:
-            print(f'Login successful!')
+            print('Login successful!')
             main_menu(user_id, username)
-            
-    if choice == '2':
+        else:
+            print('Invalid username or password.')
+
+    elif choice == '2':
         username = input('Choose a username: ')
         password = input('Choose a password: ')
         register_user(username, password)
-        
-    if choice == '3':
+
+    elif choice == '3':
         print('Thank you for using Mega Bank!')
         sys.exit(0)
-        
+
     else:
-        print('Invalid option! please choose (1-3).' )
-        
+        print('Invalid option! please choose (1-3).')
+
+
 
 if __name__ == "__main__":
     init_database()
-    main()
+    while True:
+        main()
